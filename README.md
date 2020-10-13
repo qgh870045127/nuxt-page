@@ -4,7 +4,8 @@
 通过 index.js 暴露出去，有俩地会用到，asyncData 和 vue。
 
 ```javascript
-// 同时注入context 和 Vue中，以$为前缀调用
+// plugins > axios.js
+// 同时注入 asyncData 和 Vue 中，以$为前缀调用
 import api from '@/api'
 export default ({ app }, inject) => {
   inject('api', api)
