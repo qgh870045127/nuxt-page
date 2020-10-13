@@ -1,0 +1,134 @@
+// 动画
+
+.up {
+  opacity: 0;
+  animation-name: up;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translate(0px, 80px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.down {
+  opacity: 0;
+  animation-name: down;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+@keyframes down {
+  from {
+    opacity: 0;
+    transform: translate(0px, -80px);
+  }
+
+  to {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+}
+
+.duang {
+  animation-name: duang;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+@keyframes duang {
+
+  30% {
+    transform: scale(1.2, 0.9);
+  }
+
+  75% {
+    transform: scale(0.92, 1.08);
+  }
+
+  92% {
+    transform: scale(1.04, 0.96);
+  }
+
+  96% {
+    transform: scale(1.02, 0.98);
+  }
+
+  99% {
+    transform: scale(1.01, 0.99);
+  }
+}
+
+.updown {
+  animation-name: updown;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+}
+
+@keyframes updown {
+  16.65% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px)
+  }
+
+  33.3% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px)
+  }
+
+  49.95% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px)
+  }
+
+  66.6% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px)
+  }
+
+  83.25% {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px)
+  }
+}
+
+.bright-button {
+  overflow: hidden;
+  position: relative;
+  padding: 6PX 12PX;
+  font-size: 14PX;
+  color: #fff;
+  border-radius: 2PX;
+  display: inline-block;
+  cursor: pointer;
+  background: linear-gradient(-45deg, #f857a6, #ff5858);
+  // i9 渐变兼容
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#f857a6', endColorstr='#ff5858');
+  &:before {
+    content: '';
+    background: rgba(255, 255, 255, 0.3);
+    height: 100%;
+    width: 65%;
+    position: absolute;
+    top: 0;
+    left: -150%;
+    transform: skew(-45deg);
+    transition: 0s;
+  }
+
+  &:hover:before {
+    left: 150%;
+    transition: .5s;
+  }
+}

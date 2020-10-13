@@ -1,0 +1,6 @@
+// sass变量
+
+$default:var(--default, #FFFFFF); // 全局--default = $default
+$error:rgb(255, 0, 0);
+$success:rgb(33, 255, 13);
+$warning:rgb(255, 174, 0);

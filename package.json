@@ -1,0 +1,31 @@
+{
+  "name": "byPage",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.13.2",
+    "image-webpack-loader": "^7.0.1",
+    "intersection-observer": "^0.11.0",
+    "node-sass": "^4.14.1",
+    "nuxt": "^2.14.5",
+    "postcss-px2rem-exclude": "^0.0.6",
+    "sass-loader": "^10.0.2",
+    "webpack-spritesmith": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-plugin-component": "^1.1.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.1"
+  }
+}
