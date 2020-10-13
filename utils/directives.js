@@ -1,7 +1,7 @@
 require('intersection-observer')
 
 /**
- * @description 返回IE版本号
+ * @description IE版本号
  */
 if (process.browser) {
   var userAgent = window.navigator.userAgent
@@ -11,7 +11,13 @@ if (process.browser) {
   }
 }
 
+/**
+ * @description 监听元素封装
+ */
 const observer = function (element, callback) {
+  // 元素初始化状态
+  element.style.opacity = 0
+  // 兼容IE9
   if (IEVersion < 10) {
     element.style.opacity = 1
     return

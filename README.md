@@ -51,11 +51,75 @@ function setRemUnit() {
 }
 ```
 
-## v-lazyBox：元素可视 > 动画及回调
+## v-lazyBox：监听发元素状态 > 可视 > 动画及回调
 
 使用 intersection-observer 判断元素是否进入可视区，并通过 vue 指令绑定在元素上。
-由于通过指令的方式，事件执行是在元素生成之后，需要对页面加载时，已经在可视区的元素
-做隐藏处理 opacity = 0。
+
+```javascript
+require('intersection-observer')
+
+/**
+ * @description IE版本号
+ */
+if (process.browser) {
+  var userAgent = window.navigator.userAgent
+  var IEReg = new RegExp('MSIE (\\d+\\.\\d+);')
+  if (IEReg.test(userAgent)) {
+    var IEVersion = parseFloat(RegExp['$1'])
+  }
+}
+
+/**
+ * @description 监听元素封装
+ */
+const observer = function (element, callback) {
+  // 元素初始化状态
+  element.style.opacity = 0
+  // 兼容IE9
+  if (IEVersion < 10) {
+    element.style.opacity = 1
+    return
+  }
+  let listen = new IntersectionObserver((entries) => {
+    entries.forEach((item) => {
+      if (item.isIntersecting) {
+        // 回调
+        callback && callback(listen, item)
+        // 移除监听
+        listen.unobserve(item.target)
+      }
+    })
+  })
+  // 监听节点
+  listen.observe(element)
+}
+
+/**
+ * @description 元素动画
+ * @param delay 动画延时
+ * @param type 动画类型
+ * @param callback 元素进入可视区回调
+ */
+export const lazyBox = {
+  bind: function (element, binding, node) {
+    observer(element, () => {
+      let { delay, type, callback } = Object.assign(
+        { delay: 0, type: 'up', callback: null },
+        binding.value
+      )
+      if (binding.value) element.style.animationDelay = `${delay}s`
+      element.className = `${element.className} ${type}`
+      if (callback && typeof callback === 'function') {
+        callback(element)
+      }
+      // 图片懒加载 请求地址绑定在img name属性里
+      node.elm.children.forEach((el) => {
+        if (el.tagName === 'IMG') el.src = el.name
+      })
+    })
+  },
+}
+```
 
 ## webpack-spritesmith：合成雪碧图
 
@@ -87,7 +151,7 @@ export default {
             cssImageRef: '/img/sprite.png', // css background:url引入雪碧图的地址
           },
           customTemplates: {
-            function_based_template: templateFunction,
+            function_based_template: templateFunction, // 样式模板
           },
           spritesmithOptions: {
             algorithm: 'binary-tree',
