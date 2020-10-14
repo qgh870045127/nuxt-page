@@ -7,10 +7,10 @@
       ref="news-nav"
       style="font-size: 0.2rem; height: 5rem"
     >
-      <div class="bright-button" v-lazyBox="{ delay: 0.3 }">测试</div>
-      <div class="bright-button" v-lazyBox="{ delay: 0.4 }">测试</div>
-      <div class="bright-button" v-lazyBox="{ delay: 0.5 }">测试</div>
-      <div class="bright-button" v-lazyBox="{ delay: 0.6 }">测试</div>
+      <div class="bright-button" style="opacity:0;" v-lazyBox="{ delay: 0.3 }">测试</div>
+      <div class="bright-button" style="opacity:0;" v-lazyBox="{ delay: 0.4 }">测试</div>
+      <div class="bright-button" style="opacity:0;" v-lazyBox="{ delay: 0.5 }">测试</div>
+      <div class="bright-button" style="opacity:0;" v-lazyBox="{ delay: 0.6 }">测试</div>
     </div>
   </div>
 </template>

@@ -1,7 +1,6 @@
 // 动画
 
 .up {
-  opacity: 0;
   animation-name: up;
   animation-duration: 1s;
   animation-fill-mode: forwards;
@@ -21,7 +20,6 @@
 }
 
 .down {
-  opacity: 0;
   animation-name: down;
   animation-duration: 1s;
   animation-fill-mode: forwards;

@@ -52,9 +52,11 @@ function setRemUnit() {
 }
 ```
 
-## v-lazyBox：监听发元素状态 > 可视 > 动画及回调
+## v-lazyBox：监听元素状态 > 可视 > 动画及回调
 
 使用 intersection-observer 判断元素是否进入可视区，并通过 vue 指令绑定在元素上。
+由于通过指令的方式，事件执行在元素生成之后，需要对页面加载时，已经在可视区的元素
+做隐藏处理 opacity = 0。
 
 ```javascript
 require('intersection-observer')
